@@ -1,0 +1,18 @@
+{
+  "name": "pinch-to-zoom",
+  "version": "0.0.1",
+  "description": "Pinch to zoom ",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "parcel src/index.html"
+  },
+  "author": "vkrbt",
+  "license": "ISC",
+  "dependencies": {
+    "parcel-bundler": "^1.11.0"
+  },
+  "devDependencies": {
+    "typescript": "^3.2.2"
+  }
+}
