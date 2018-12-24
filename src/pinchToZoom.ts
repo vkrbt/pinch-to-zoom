@@ -7,11 +7,12 @@ interface IPinchToZoomConfig {
     maxScale: number;
     minScale: number;
     transitionDuration: number;
+    onScale?: (scale: number, translateX: number, translateY: number) => void;
 }
 
 let defaultConfig: IPinchToZoomConfig = {
     maxScale: 4,
-    minScale: 0.5,
+    minScale: 1,
     transitionDuration: 100,
 };
 
@@ -61,7 +62,7 @@ export class PinchToZoom {
         }
 
         this.initialBoundingRect = this.element.getBoundingClientRect();
-        let isTouchesOnImages = [].every.call(event.touches, (touch: Touch) => {
+        let isTouchesOnElement = [].every.call(event.touches, (touch: Touch) => {
             let point = getPointFromTouch(touch);
             return (
                 (point.x <= this.initialBoundingRect.right) && (point.x >= this.initialBoundingRect.left)
@@ -70,7 +71,7 @@ export class PinchToZoom {
             );
         });
 
-        if (!isTouchesOnImages) {
+        if (!isTouchesOnElement) {
             return;
         }
 
@@ -112,11 +113,15 @@ export class PinchToZoom {
                 y: middleTouch.y - boxSize.top,
             };
 
-            this.setTransform(
-                this.currentPinchLength / this.initialPinchLength,
-                middleOnElement.x - this.startPoint.x,
-                middleOnElement.y - this.startPoint.y,
-            );
+            let scale = this.currentPinchLength / this.initialPinchLength;
+            let translateX = middleOnElement.x - this.startPoint.x;
+            let translateY = middleOnElement.y - this.startPoint.y;
+
+            this.setTransform(scale, translateX, translateY);
+
+            if (this.config.onScale) {
+                this.config.onScale(scale, translateX, translateY);
+            }
         }
     }
 
