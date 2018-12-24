@@ -5,15 +5,15 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "rm -rf dist && parcel src/index.html"
+    "build": "rollup index.js --format umd --name 'PinchToZoom' --file index.js"
   },
   "author": "vkrbt",
   "license": "ISC",
-  "dependencies": {
-    "parcel-bundler": "^1.11.0",
-    "tslint": "^5.12.0"
-  },
   "devDependencies": {
+    "rollup": "^0.68.2",
+    "rollup-plugin-typescript": "^1.0.0",
+    "tslib": "^1.9.3",
+    "tslint": "^5.12.0",
     "typescript": "^3.2.2"
   }
 }
