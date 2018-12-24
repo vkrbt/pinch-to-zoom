@@ -1,0 +1,10 @@
+{
+    "extends": ["tslint:recommended"],
+    "linterOptions": {
+      "include": ["src/**/*.ts"]
+    },
+    "rules": {
+      "quotemark": [true, "single"],
+      "prefer-const": false
+    }
+}

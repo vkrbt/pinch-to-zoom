@@ -10,7 +10,8 @@
   "author": "vkrbt",
   "license": "ISC",
   "dependencies": {
-    "parcel-bundler": "^1.11.0"
+    "parcel-bundler": "^1.11.0",
+    "tslint": "^5.12.0"
   },
   "devDependencies": {
     "typescript": "^3.2.2"
