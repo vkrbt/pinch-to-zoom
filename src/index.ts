@@ -9,7 +9,7 @@ interface IPinchToZoomConfig {
     maxScale: number;
     minScale: number;
     transitionDuration: number;
-    onScale?: (scale: number, translateX: number, translateY: number) => void;
+    onScale?: (scale: number, translateX: number, translateY: number) => any;
 }
 
 let defaultConfig: IPinchToZoomConfig = {
