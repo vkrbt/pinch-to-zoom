@@ -1,19 +1,31 @@
 {
   "name": "pinch-to-zoom",
-  "version": "0.0.1",
-  "description": "Pinch to zoom ",
-  "main": "index.js",
+  "version": "0.0.2",
+  "description": "Pinch to zoom",
+  "main": "dist/index.main.js",
+  "module": "dist/index.module.js",
+  "types": "dist/index.d.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "rollup index.js --format umd --name 'PinchToZoom' --file index.js"
+    "build": "rollup -c",
+    "watch": "rollup -cw",
+    "tsc": "tsc"
   },
-  "author": "vkrbt",
+  "author": "Vladislav Korbut <v.korbut8@gmail.com>",
   "license": "ISC",
   "devDependencies": {
     "rollup": "^0.68.2",
     "rollup-plugin-typescript": "^1.0.0",
-    "tslib": "^1.9.3",
     "tslint": "^5.12.0",
     "typescript": "^3.2.2"
-  }
+  },
+  "keywords": [
+    "client",
+    "pinch",
+    "zoom",
+    "multitouch",
+    "image",
+    "pinchzoom",
+    "vanilla"
+  ]
 }

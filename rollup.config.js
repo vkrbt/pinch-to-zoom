@@ -1,10 +1,20 @@
 import typescript from 'rollup-plugin-typescript';
 
+import pkg from './package.json'
+
 export default {
-    entry: 'src/index.ts',
-    dest: 'build/index.min.js',
-    format: 'iife',
-    sourceMap: 'inline',
+    input: 'src/index.ts',
+    output: [
+        {
+            file: pkg.main,
+            format: 'iife',
+            name: 'pinchToZoom'
+        },
+        {
+            file: pkg.module,
+            format: 'es',
+        },
+    ],
     plugins: [
         typescript(),
     ]

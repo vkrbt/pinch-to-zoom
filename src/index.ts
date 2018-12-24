@@ -5,7 +5,7 @@ import {
     ITouchCoordinates,
 } from './helpers';
 
-interface IPinchToZoomConfig {
+export interface IPinchToZoomConfig {
     maxScale: number;
     minScale: number;
     transitionDuration: number;
