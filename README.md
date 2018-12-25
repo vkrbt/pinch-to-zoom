@@ -1,5 +1,7 @@
 # pinch-to-zoom
-Instagram like Pinch-to-zoom
+Instagram like Pinch-to-zoom.
+
+No dependencies.
 
 # Usage
 ```js

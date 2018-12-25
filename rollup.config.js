@@ -8,7 +8,7 @@ export default {
         {
             file: pkg.main,
             format: 'iife',
-            name: 'pinchToZoom'
+            name: 'pinchToZoom',
         },
         {
             file: pkg.module,
