@@ -1,6 +1,8 @@
 # pinch-to-zoom
 Instagram like Pinch-to-zoom.
+
 [DEMO](https://vkrbt.github.io/pinch-to-zoom/demo/) Pinch on multitouch devices on images.
+
 No dependencies.
 
 # Usage
