@@ -24,12 +24,28 @@ export class PinchToZoom {
     private currentPinchLength: number;
     private initialBoundingRect: ClientRect | DOMRect;
     private timeoutId: number;
+    private config: IPinchToZoomConfig;
 
-    constructor(private element: HTMLElement, private config: IPinchToZoomConfig = defaultConfig) {
+    constructor(
+        private element: HTMLElement,
+        config: IPinchToZoomConfig = defaultConfig,
+    ) {
+        this.config = {
+            ...defaultConfig,
+            ...config,
+        };
         element.addEventListener('touchstart', this.onTouchStart);
         element.addEventListener('touchmove', this.onTouchMove);
         element.addEventListener('touchend', this.onTouchEnd);
         element.addEventListener('touchcancel', this.onTouchEnd);
+    }
+
+    public unsibscribe = (): void => {
+        clearTimeout(this.timeoutId);
+        this.element.removeEventListener('touchstart', this.onTouchStart);
+        this.element.removeEventListener('touchmove', this.onTouchMove);
+        this.element.removeEventListener('touchend', this.onTouchEnd);
+        this.element.removeEventListener('touchcancel', this.onTouchEnd);
     }
 
     private onTouchStart = (event: TouchEvent): void => {

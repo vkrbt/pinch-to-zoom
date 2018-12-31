@@ -1,6 +1,6 @@
 {
   "name": "pinch-to-zoom",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Pinch to zoom",
   "main": "dist/index.main.js",
   "module": "dist/index.module.js",
@@ -12,7 +12,8 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "rollup -c",
     "watch": "rollup -cw",
-    "tsc": "tsc"
+    "tsc": "tsc",
+    "prepublish": "npm run build && npm run tsc"
   },
   "author": "Vladislav Korbut <v.korbut8@gmail.com>",
   "license": "MIT",
@@ -29,9 +30,9 @@
     "multitouch",
     "image",
     "pinchzoom",
-    "vanilla"
+    "vanilla",
+    "react"
   ],
-  "dependencies": {},
   "repository": {
     "type": "git",
     "url": "git+https://github.com/vkrbt/pinch-to-zoom.git"

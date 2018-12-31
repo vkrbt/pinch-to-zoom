@@ -37,7 +37,13 @@ var pinchToZoom = (function (exports) {
     class PinchToZoom {
         constructor(element, config = defaultConfig) {
             this.element = element;
-            this.config = config;
+            this.unsibscribe = () => {
+                clearTimeout(this.timeoutId);
+                this.element.removeEventListener('touchstart', this.onTouchStart);
+                this.element.removeEventListener('touchmove', this.onTouchMove);
+                this.element.removeEventListener('touchend', this.onTouchEnd);
+                this.element.removeEventListener('touchcancel', this.onTouchEnd);
+            };
             this.onTouchStart = (event) => {
                 if (event.touches.length !== 2) {
                     return;
@@ -95,6 +101,7 @@ var pinchToZoom = (function (exports) {
             this.setTransformOrigin = (x, y) => {
                 this.element.style.transformOrigin = `${x} ${y} 0`;
             };
+            this.config = Object.assign({}, defaultConfig, config);
             element.addEventListener('touchstart', this.onTouchStart);
             element.addEventListener('touchmove', this.onTouchMove);
             element.addEventListener('touchend', this.onTouchEnd);

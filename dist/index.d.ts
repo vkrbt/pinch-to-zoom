@@ -6,13 +6,14 @@ export interface IPinchToZoomConfig {
 }
 export declare class PinchToZoom {
     private element;
-    private config;
     private firstTouch;
     private initialPinchLength;
     private currentPinchLength;
     private initialBoundingRect;
     private timeoutId;
+    private config;
     constructor(element: HTMLElement, config?: IPinchToZoomConfig);
+    unsibscribe: () => void;
     private onTouchStart;
     private onTouchMove;
     private onTouchEnd;
