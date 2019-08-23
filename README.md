@@ -24,11 +24,12 @@ minScale: 1
 transitionDuration: 100
 ```
 
-## React Usage
+## React class Usage
 ```js
 import React from 'react';
+import { PinchToZoom } from 'pinch-to-zoom';
 
-export class PinchToZoom extends React.Component {
+export class PinchToZoomImage extends React.Component {
     imgRef = React.createRef();
     pinchToZoom = null;
 
@@ -38,18 +39,43 @@ export class PinchToZoom extends React.Component {
         }
     }
 
-    // Don't forget to unsibscribe before unmounting
+    // Don't forget to unsubscribe when unmounting
     componentWillUnmount() {
         if (this.pinchToZoom) {
-            this.pinchToZoom.unsubscibe();
+            this.pinchToZoom.unsubscribe();
         }
     }
 
     render() {
         return (
-            <img ref={imgRef} />
+            <img ref={imgRef} {...this.props}/>
         );
     }
 }
 
+```
+
+## React functional Usage
+
+```js
+import React, { useRef, useEffect } from 'react';
+import { PinchToZoom } from 'pinch-to-zoom';
+
+const PinchToZoomImage = props => {
+  const imgRef = useRef(null)
+  const pinchToZoom = useRef(null)
+
+  useEffect(() => {
+    if (imgRef.current) {
+      pinchToZoom.current = new PinchToZoom(imgRef.current)
+    }
+    return () => {
+      if (pinchToZoom.current) {
+        pinchToZoom.current.unsubscribe()
+      }
+    }
+  }, [])
+
+  return <img ref={imgRef} {...props} />
+}
 ```
