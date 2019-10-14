@@ -65,12 +65,12 @@ import { PinchToZoom } from 'pinch-to-zoom';
     const pinchToZoom = useRef(null)
     useEffect(() => {
         if (imgRef.current) {
-        pinchToZoom.current = new PinchToZoom(imgRef.current)
+            pinchToZoom.current = new PinchToZoom(imgRef.current)
         }
         return () => {
-        if (pinchToZoom.current) {
-            pinchToZoom.current.unsubscribe()
-        }
+            if (pinchToZoom.current) {
+                pinchToZoom.current.unsubscribe()
+            }
         }
     }, [])
    return <img ref={imgRef} {...props} />

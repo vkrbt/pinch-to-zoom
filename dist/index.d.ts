@@ -13,7 +13,7 @@ export declare class PinchToZoom {
     private timeoutId;
     private config;
     constructor(element: HTMLElement, config?: IPinchToZoomConfig);
-    unsibscribe: () => void;
+    unsubscribe: () => void;
     private onTouchStart;
     private onTouchMove;
     private onTouchEnd;
