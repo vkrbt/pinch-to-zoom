@@ -37,7 +37,7 @@ var pinchToZoom = (function (exports) {
     class PinchToZoom {
         constructor(element, config = defaultConfig) {
             this.element = element;
-            this.unsibscribe = () => {
+            this.unsubscribe = () => {
                 clearTimeout(this.timeoutId);
                 this.element.removeEventListener('touchstart', this.onTouchStart);
                 this.element.removeEventListener('touchmove', this.onTouchMove);

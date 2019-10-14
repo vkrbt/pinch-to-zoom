@@ -40,7 +40,7 @@ export class PinchToZoom {
         element.addEventListener('touchcancel', this.onTouchEnd);
     }
 
-    public unsibscribe = (): void => {
+    public unsubscribe = (): void => {
         clearTimeout(this.timeoutId);
         this.element.removeEventListener('touchstart', this.onTouchStart);
         this.element.removeEventListener('touchmove', this.onTouchMove);

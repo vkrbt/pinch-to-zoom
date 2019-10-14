@@ -18,10 +18,10 @@
   "author": "Vladislav Korbut <v.korbut8@gmail.com>",
   "license": "MIT",
   "devDependencies": {
-    "rollup": "^0.68.2",
-    "rollup-plugin-typescript": "^1.0.0",
-    "tslint": "^5.12.0",
-    "typescript": "^3.2.2"
+    "rollup": "1.23.1",
+    "rollup-plugin-typescript": "1.0.1",
+    "tslint": "5.20.0",
+    "typescript": "3.6.4"
   },
   "keywords": [
     "client",
